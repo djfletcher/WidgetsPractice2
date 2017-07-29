@@ -3,7 +3,12 @@ import React from 'react';
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: new Date };
+    this.state = {
+      date: new Date,
+      hours: 0,
+      minutes: 0,
+      seconds: 0
+    };
   }
 
   componentDidMount() {
@@ -24,11 +29,12 @@ class Clock extends React.Component {
     hours = date.getHours();
     minutes = date.getMinutes();
     seconds = date.getSeconds();
-    return `${hours}:${minutes}:${seconds}`;
+    return { hours, minutes, seconds };
   }
 
   render() {
-    return <div id="digital">{ this.parseTime() }</div>;
+    let { hours, minutes, seconds } = this.parseTime();
+    return <div id="digital">{ `${hours}:${minutes}:${seconds}` }</div>;
   }
 }
 

@@ -1,0 +1,12 @@
+#clock-face {
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+#second-hand {
+  width: 2px;
+  height: 200px;
+  background-color: red;
+}
