@@ -4,24 +4,24 @@ import Clock from './clock';
 class AnalogClock extends Clock {
   constructor(props) {
     super(props);
-    this.state = { degrees: { hours: 0, minutes: 0, seconds: 0 } };
   }
 
   orientHands() {
-    let seconds = this.state.date.getSeconds();
-    let degrees = seconds * 6;
-    let secondHand = <div id="second-hand" style={{ transform: `rotate(${degrees}deg)` }}></div>;
-    return secondHand;
+    let { hours, minutes, seconds } = this.parseTime();
+    return {
+      hourDegrees: hours * 15,
+      minuteDegrees: minutes * 6,
+      secondDegrees: seconds * 6,
+    };
   }
 
   render() {
-    let hourHand, minuteHand, secondHand;
-    secondHand = this.orientHands();
+    let { hourDegrees, minuteDegrees, secondDegrees } = this.orientHands();
     return (
       <div id="clock-face">
-        { hourHand }
-        { minuteHand }
-        { secondHand }
+        <div id="hour-hand" style={{ transform: `rotate(${hourDegrees}deg)` }} />
+        <div id="minute-hand" style={{ transform: `rotate(${minuteDegrees}deg)` }} />
+        <div id="second-hand" style={{ transform: `rotate(${secondDegrees}deg)` }} />
       </div>
     );
   }

@@ -1,11 +1,33 @@
 #clock-face {
-  width: 400px;
-  height: 400px;
+  position: relative;
+  width: 420px;
+  height: 420px;
   border: 1px solid black;
   border-radius: 50%;
 }
 
+#hour-hand {
+  position: absolute;
+  left: 210px;
+  top: 210px;
+  width: 4px;
+  height: 100px;
+  background-color: black;
+}
+
+#minute-hand {
+  position: absolute;
+  left: 210px;
+  top: 210px;
+  width: 2px;
+  height: 180px;
+  background-color: black;
+}
+
 #second-hand {
+  position: absolute;
+  left: 210px;
+  top: 210px;
   width: 2px;
   height: 200px;
   background-color: red;
