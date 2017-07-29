@@ -4,8 +4,12 @@ import AnalogClock from './analog_clock';
 
 class Root extends React.Component {
   render() {
-    // return <Clock />;
-    return <AnalogClock />;
+    return (
+      <div>
+        <Clock />
+        <AnalogClock />
+      </div>
+    );
   }
 }
 

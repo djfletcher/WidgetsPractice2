@@ -1,5 +1,6 @@
 import React from 'react';
 import Clock from './clock';
+import ClockHand from './clock_hand';
 
 class AnalogClock extends Clock {
   constructor(props) {
@@ -9,9 +10,10 @@ class AnalogClock extends Clock {
   orientHands() {
     let { hours, minutes, seconds } = this.parseTime();
     return {
-      hourDegrees: hours * 15,
-      minuteDegrees: minutes * 6,
-      secondDegrees: seconds * 6,
+      // Need to add 180 to result because 0 degrees points down instead of up
+      hourDegrees: 180 + hours * 30,
+      minuteDegrees: 180 + minutes * 6,
+      secondDegrees: 180 + seconds * 6,
     };
   }
 
@@ -19,9 +21,9 @@ class AnalogClock extends Clock {
     let { hourDegrees, minuteDegrees, secondDegrees } = this.orientHands();
     return (
       <div id="clock-face">
-        <div id="hour-hand" style={{ transform: `rotate(${hourDegrees}deg)` }} />
-        <div id="minute-hand" style={{ transform: `rotate(${minuteDegrees}deg)` }} />
-        <div id="second-hand" style={{ transform: `rotate(${secondDegrees}deg)` }} />
+        { ClockHand('hour-hand', hourDegrees) }
+        { ClockHand('minute-hand', minuteDegrees) }
+        { ClockHand('second-hand', secondDegrees) }
       </div>
     );
   }

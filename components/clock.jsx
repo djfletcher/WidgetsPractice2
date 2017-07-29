@@ -26,7 +26,7 @@ class Clock extends React.Component {
   parseTime() {
     let date, hours, minutes, seconds;
     date = this.state.date;
-    hours = date.getHours();
+    hours = date.getHours() % 12;
     minutes = date.getMinutes();
     seconds = date.getSeconds();
     return { hours, minutes, seconds };
