@@ -6,12 +6,24 @@
   transform-origin: top center;
 }
 
+#digital {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+}
+
 #clock-face {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 420px;
   height: 420px;
   border: 1px solid black;
   border-radius: 50%;
+  margin-top: -210px;
+  margin-left: -210px;
 }
 
 #hour-hand {
