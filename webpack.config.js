@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: './widgets.jsx',
+  entry: './components/widgets.jsx',
   output: {
     path: path.resolve(__dirname),
     filename: 'bundle.js'
